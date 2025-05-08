@@ -1,6 +1,6 @@
 resource "docker_container" "php-httpd" {
-  name = "webserver"
-  image = "php-httpd:challenge"
+  name     = "webserver"
+  image    = "php-httpd:challenge"
   hostname = "php-httpd"
   networks_advanced {
     name = "my_network"
@@ -15,6 +15,6 @@ resource "docker_container" "php-httpd" {
   }
   volumes {
     container_path = "/var/www/html"
-    host_path     = "/root/code/terraform-challenges/challenge2/lamp_stack/website_content/"
+    host_path      = "/root/code/terraform-challenges/challenge2/lamp_stack/website_content/"
   }
 }

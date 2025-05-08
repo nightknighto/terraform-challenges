@@ -1,6 +1,6 @@
 resource "docker_container" "phpmyadmin" {
-  name = "db_dashboard"
-  image = "phpmyadmin/phpmyadmin"
+  name     = "db_dashboard"
+  image    = "phpmyadmin/phpmyadmin"
   hostname = "phpmyadmin"
   networks_advanced {
     name = "my_network"
@@ -16,5 +16,5 @@ resource "docker_container" "phpmyadmin" {
   links = [
     "db"
   ]
-  depends_on = [ docker_container.mariadb ]
+  depends_on = [docker_container.mariadb]
 }

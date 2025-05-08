@@ -8,9 +8,9 @@ resource "kubernetes_deployment" "frontend" {
   spec {
     replicas = 4
     selector {
-        match_labels = {
-            name = "webapp"
-        }
+      match_labels = {
+        name = "webapp"
+      }
     }
     template {
       metadata {
@@ -20,7 +20,7 @@ resource "kubernetes_deployment" "frontend" {
       }
       spec {
         container {
-          name = "simple-webapp"
+          name  = "simple-webapp"
           image = "kodekloud/webapp-color:v1"
           port {
             container_port = 8080

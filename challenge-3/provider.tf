@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
       version = "4.15.0"
     }
   }
@@ -12,7 +12,7 @@ provider "aws" {
   skip_credentials_validation = true
   skip_requesting_account_id  = true
 
-endpoints {
+  endpoints {
     ec2            = "http://aws:4566"
     apigateway     = "http://aws:4566"
     cloudformation = "http://aws:4566"

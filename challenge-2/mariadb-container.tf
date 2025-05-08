@@ -1,6 +1,6 @@
 resource "docker_container" "mariadb" {
-  name = "db"
-  image = "mariadb:challenge"
+  name     = "db"
+  image    = "mariadb:challenge"
   hostname = "db"
   networks_advanced {
     name = "my_network"
@@ -15,7 +15,7 @@ resource "docker_container" "mariadb" {
   }
   volumes {
     container_path = "/var/lib/mysql"
-    volume_name = "mariadb-volume"
+    volume_name    = "mariadb-volume"
   }
   env = [
     "MYSQL_ROOT_PASSWORD=1234",
