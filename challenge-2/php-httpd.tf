@@ -1,9 +1,19 @@
+resource "docker_image" "php-httpd-image" {
+  name = "php-httpd:challenge"
+  build {
+    path = "lamp_stack/php_httpd"
+    label = {
+      challenge = "second"
+    }
+  }
+}
+
 resource "docker_container" "php-httpd" {
   name     = "webserver"
-  image    = "php-httpd:challenge"
+  image    = dbocker_image.php-httpd-image.id
   hostname = "php-httpd"
   networks_advanced {
-    name = "my_network"
+    name = docker_network.private_network.id
   }
   ports {
     internal = 80

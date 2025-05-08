@@ -3,7 +3,7 @@ resource "docker_container" "phpmyadmin" {
   image    = "phpmyadmin/phpmyadmin"
   hostname = "phpmyadmin"
   networks_advanced {
-    name = "my_network"
+    name = docker_network.private_network.id
   }
   ports {
     internal = 80
@@ -14,7 +14,7 @@ resource "docker_container" "phpmyadmin" {
     value = "second"
   }
   links = [
-    "db"
+    docker_container.mariadb.name
   ]
   depends_on = [docker_container.mariadb]
 }
